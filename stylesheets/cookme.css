@@ -1,0 +1,76 @@
+body {
+    background-color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif"
+}
+h1 { 
+    font-family: "Helvetica Neue";
+    font-size: 35px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+h2 { 
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 30px;
+    max-width: 400px; 
+}
+h3 {
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+    margin-left: 30px;
+    max-width: 400px; 
+    font-weight: normal;
+}
+p {
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+    margin-left: 30px;
+    margin-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+    max-height: 302px;
+    line-height: 15px;
+    color: #181818;
+}
+ul {
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+    margin-left: 10px;
+}
+img {
+    margin-left: 30px; 
+    width: 600px;
+    margin-top: 30px;
+}
+.outer-div{
+    padding:30px; 
+}
+.inner-div{ 
+    margin: 0 auto;
+    width: 100px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1;
+    /*grid-column-gap: 30px;*/
+}
+.grid-item {
+    text-align: left;
+}
+.rectangle{ 
+    height: 100px;
+    width: 200px;
+    background-color: #555;
+}
+.reframe {
+    height: 250px;
+    width: 500px;
+    overflow: hidden;
+}
+.reframe img {
+    height: auto;
+    width: 500px;
+}
