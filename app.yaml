@@ -1,0 +1,20 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /assets
+  static_dir: assets
+- url: /favicon\.ico
+  static_files: assets/favicon.ico
+  upload: assets/favicon\.ico
+- url: /stylesheets
+  static_dir: stylesheets
+- url: /.*
+  script: main.app
+
+libraries:
+- name: flask
+  version: 0.12
+- name: jinja2
+  version: latest

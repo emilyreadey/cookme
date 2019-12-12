@@ -1,0 +1,90 @@
+<html>
+  <head>
+  <title>CookMe</title>
+  <center> <img src="/assets/cookmelogo.png" style="width:250px; margin-left: 0px; margin-top:30px; margin-bottom: 0px;"> </center>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/cookme.css">
+</head>
+
+<script>
+  function addItem(){
+    var ul = document.getElementById("dynamic-list");
+    var candidate = document.getElementById("candidate");
+    var li = document.createElement("li");
+    li.setAttribute('id',candidate.value);
+    li.appendChild(document.createTextNode(candidate.value));
+    ul.appendChild(li);
+}
+
+function removeItem(){
+    var ul = document.getElementById("dynamic-list");
+    var candidate = document.getElementById("candidate");
+    var item = document.getElementById(candidate.value);
+    ul.removeChild(item);
+}
+
+function getIngredients(){
+  var lis = document.getElementById("dynamic-list").getElementsByTagName("li");
+  return lis
+}
+
+function submit() {
+  
+  var lis = document.getElementById("dynamic-list").getElementsByTagName("li");
+  ingredients=""
+  for (i=0; i<lis.length; i++) {
+    item = lis[i]
+    ingredients += item.innerText;
+    ingredients += ","
+  }
+  var form=document.getElementById("myform");
+  var input_text = document.getElementById("ingredients");
+  input_text.value = ingredients;
+  form.submit()
+
+}
+function unhide(recipe) {
+    var hid = recipe;
+    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+        hid[0].style.visibility = "visible";
+    }
+}
+</script>
+
+<body>
+
+<h2>What's in your fridge?</h2>
+
+
+<h3>Enter any ingredient </h3>
+<ul id="dynamic-list"></ul>
+<input type="text" id="candidate"  style = "float:left; margin-left:30px;"/> 
+<button onclick="addItem()" style = "margin-left: 10px;" > Add Item </button>
+<button onclick="removeItem()" style = "margin-left: 10px;" > Remove Item </button>
+<button onclick="submit()" style = "margin-left: 10px;" >Go!</button>
+<br>
+
+<form hidden id="myform" style="font-family:Helvetica Neue; font-size:14; margin-left:30px; margin-top: 10px; float: left">
+ 
+
+<input name="ingredients" id="ingredients" value="">
+<input type="submit" value="Submit" style = "float:left">
+</form>
+
+<h2 style = "margin-bottom: -30px">{{tagname}}</h2>
+  <br>
+  {% for recipe in recipes %}
+  <div class = "grid-container">
+    <div>
+      <div class = "reframe">
+        <img src={{recipe.image}} style = "height: auto" /> 
+      </div>
+    </div> <div>
+      <h2>{{recipe.title}}</h2>
+      <p id= "recipe" style = "width: 500px">{{recipe.instructions}}</p>
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+</div>
+</body>
+</html>
